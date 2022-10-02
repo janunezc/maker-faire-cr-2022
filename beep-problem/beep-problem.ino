@@ -7,12 +7,11 @@ void setup() {
 long timeInit = millis();
 void loop() {
   int segundos =  (millis() - timeInit) / 1000;
-
   printSeconds(segundos);
+  
   if (segundos > 0 && segundos % 10 == 0) {
     beep(250, 250, 4);
   }
-
 }
 
 void printSeconds(int segundos){
