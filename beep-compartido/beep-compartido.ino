@@ -46,21 +46,7 @@ void beepCompartido_Setup(int tiempoONms, int tiempoOFFms, int veces){
 
 void beepCompartido(){
   if( bcSetup == false ) return;
-  Serial.print("beepCompartido() ENTERED");
-
-  Serial.print("|");
-  Serial.print("bc_sigMomento_ON: ");
-  Serial.print(bc_sigMomento_ON);
-
-  Serial.print("|");
-  Serial.print("bc_sigMomento_OFF: ");
-  Serial.print(bc_sigMomento_OFF);
-
-  Serial.print("|");
-  Serial.print("bc_cuenta: ");
-  Serial.print(bc_cuenta);
-
-  Serial.println("|");  
+  bcOut();
 
   if(bc_cuenta < bc_maxCuenta){
     if(millis() > bc_sigMomento_ON){
@@ -78,4 +64,22 @@ void beepCompartido(){
   } else {
     bcSetup = false;
   }
+}
+
+void bcOut(){
+  Serial.print("beepCompartido() ENTERED");
+
+  Serial.print("|");
+  Serial.print("bc_sigMomento_ON: ");
+  Serial.print(bc_sigMomento_ON);
+
+  Serial.print("|");
+  Serial.print("bc_sigMomento_OFF: ");
+  Serial.print(bc_sigMomento_OFF);
+
+  Serial.print("|");
+  Serial.print("bc_cuenta: ");
+  Serial.print(bc_cuenta);
+
+  Serial.println("|");    
 }
